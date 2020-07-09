@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lesson3';
+  constructor(private userService: UserService) {
+userService.getUsers().subscribe(value => console.log(value));
+  }
 }
